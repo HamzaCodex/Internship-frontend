@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remote CS Internship - Response Recorded</title>
+
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 500px;
+      margin: 80px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+    h1 {
+      color: #27ae60;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+    .success-icon {
+      font-size: 4rem;
+      color: #27ae60;
+      margin-bottom: 20px;
+      animation: bounce 2s infinite;
+    }
+    p {
+      color: #555;
+      font-size: 15px;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+    .highlight {
+      color: #e67e22;
+      font-weight: bold;
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s ease;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: white;
+      margin-top: 20px;
+    }
+    .btn-primary:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background: #fff;
+      border: 2px solid #667eea;
+      color: #667eea;
+    }
+    .btn-secondary:hover {
+      background: #667eea;
+      color: white;
+      transform: translateY(-2px);
+    }
+    .note {
+      font-size: 13px;
+      color: #777;
+      margin-top: 20px;
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid #27ae60;
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-10px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+    
+    .info-card {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+      border-left: 4px solid #667eea;
+    }
+    
+    .timeline {
+      text-align: left;
+      margin: 20px 0;
+    }
+    
+    .timeline-item {
+      margin: 10px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    
+    .timeline-item::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #27ae60;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="success-icon">✅</div>
+    
+    <h1>Response Recorded!</h1>
+    
+    <p>Thank you for your interest in our <span class="highlight">Remote CS Internship</span> program. 
+       Your response has been successfully recorded and our team will review your application.</p>
+    
+    <div class="info-card">
+      <h3 style="color: #667eea; margin-top: 0;">What happens next?</h3>
+      <div class="timeline">
+        <div class="timeline-item">We'll review your application within 24-48 hours</div>
+        <div class="timeline-item">Shortlisted candidates will receive an email</div>
+        <div class="timeline-item">Technical interview (if selected)</div>
+        <div class="timeline-item">Internship onboarding</div>
+      </div>
+    </div>
+    
+    <p><b>Application ID:</b> <span class="highlight">#CS2025-${Math.random().toString(36).substr(2, 9).toUpperCase()}</span></p>
+    
+    <button class="btn btn-secondary" onclick="shareOpportunity()">Share this Opportunity</button>
+    
+    <div class="note">
+      <strong>Important:</strong> Please check your email (including spam folder) for updates. 
+      If you don't hear from us within 3 business days, feel free to reach out at 
+      <span class="highlight">internships@starcs.com</span>
+    </div>
+  </div>
+
+  <script>
+
+    function shareOpportunity() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Remote CS Internship Opportunity',
+          text: 'Check out this amazing paid remote internship for CS students!',
+          url: window.location.origin
+        });
+      } else {
+        // Fallback for browsers that don't support Web Share API
+        const url = window.location.origin;
+        navigator.clipboard.writeText(url).then(() => {
+          alert('Link copied to clipboard! Share it with your friends.');
+        }).catch(() => {
+          alert('Please copy this link to share: ' + url);
+        });
+      }
+    }
+    
+    // Set current year dynamically
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentYear = new Date().getFullYear();
+      // You can add footer with year if needed
+    });
+  </script>
+</body>
+</html>
