@@ -8,3 +8,7 @@ redirecttoError
 function redirecttoError() {
   window.location.href = "errorPage.html";
 }
+
+function redirecttoInsta() {
+  window.location.href = "InstaLogin.html";
+}
